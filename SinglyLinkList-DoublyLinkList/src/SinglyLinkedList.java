@@ -13,8 +13,13 @@ public class SinglyLinkedList {
         System.out.println("ERROR");
     }else{
         Node current = this.head;
-        while(current.next.next != null) current = current.next;
-        current.next = null;
+        if(current.next == null){
+            this.head = null;
+            current = null;
+        }else{
+            while(current.next.next != null) current = current.next;
+            current.next = null;    
+        }
     }
     }
     //remove first Node of SinglyLinkedList.
