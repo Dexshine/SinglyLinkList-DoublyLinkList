@@ -12,7 +12,7 @@ public class Node {
         this.name = name;
         this.gpa = gpa;
     }
-    // Constructor 2
+    // Constructor 2 (error case)
     public Node(String name){
         this.name = name;
     }
