@@ -110,9 +110,14 @@ public class SinglyLinkedList {
     //add node2 in front of node1.
     public void addNodeBefore(Node node1, Node node2){
         Node current = this.head;
-        while(current.next != node1) current = current.next;
-        node2.next = current.next;
-        current.next = node2;
+        if(node1 == this.head){
+            current = null;
+            this.pushFront(node2);
+        }else{
+            while(current.next != node1) current = current.next;
+            node2.next = current.next;
+            current.next = node2;
+        }
     }
     //check if SinglyLinkedList is empty or not.
     public boolean isEmpty(){
