@@ -91,15 +91,29 @@ public class SinglyLinkedList {
         return new Node("Empty List!");
     }else{
         Node current = this.head;
-        while(current != null){
-            if(current.next.student_id == id){
-                Node foundNode = current.next;
-                current.next = current.next.next;
-                return foundNode;
+        //check if it's first Node.
+        if(current.student_id == id){//The Node that we want to delete is first Node.
+            //check if LinkedList have only one Node or not.
+            if(this.head.next == null){//LinkedList only have one Node.
+                this.head = null;
+                return current;
             }
-            current = current.next;
+            else{//LinkedList have more than one Node.
+                this.head = this.head.next;
+                return current;
+            }
+        }else{//The Node that we want to delete isn't first Node.
+            while(current.next != null){
+                if(current.next.student_id == id){
+                    Node foundNode = current.next;
+                    current.next = current.next.next;
+                    return foundNode;
+                }
+                current = current.next;
+            }
+            if(current.next == null && current.student_id != id) current =  new Node("Student Not Found!");   
         }
-        return new Node("Student Not Found!");
+        return current;
     }
     }
     //add node2 behind node1.
